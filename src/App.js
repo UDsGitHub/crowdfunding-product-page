@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import {Header, Main} from './components/index';
+import logo from "./images/favicon-32x32.png";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+      <Header />
+      <Main />
+      <footer className="flex gap-2 items-center">
+        <a href="#" className='social-link rounded-full'>
+          <img src={logo} alt="front-end mentor logo" />
         </a>
-      </header>
+        <a href="#" className="social-link my-link flex items-center">
+          Udochukwu Amaefule
+        </a>
+      </footer>
     </div>
   );
 }
