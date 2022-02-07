@@ -13,6 +13,7 @@
   --Dark-gray: hsl(0, 0%, 48%);
 }
 
+
 /* || General styles */
 button {
   background-color: var(--Moderate-cyan);
@@ -99,7 +100,30 @@ main{
 }
 
 .bookmark:hover .bookmark_icon circle{
-    fill: var(--Dark-gray);
+    filter: brightness(2);
+}
+
+.bookmark .bookmark_icon path{
+    transition: .1s;
+}
+
+/* active bookmark styles */
+
+.bookmark.active{
+    color: var(--Dark-cyan);
+}
+
+.bookmark.active .bookmark_icon path{
+    fill: white;
+}
+
+.bookmark.active .bookmark_icon circle{
+    fill: var(--Dark-cyan);
+    transition: .1s;
+}
+
+.bookmark.active:hover .bookmark_icon circle{
+    filter: brightness(1.5);
 }
 
 /* || Stats styles */
@@ -138,4 +162,15 @@ main{
     .main__card{
         max-width: 60rem;
     }   
+}
+
+@media screen and (max-width: 768px) {
+    .main__card_item {
+        padding: 1.5rem;
+    }
+
+    .stats ul li:not(:first-of-type){
+        padding: 0;
+        border: 0;
+    }
 }

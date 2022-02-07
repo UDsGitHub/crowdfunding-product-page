@@ -3,8 +3,17 @@ import { v4 as uuidv4 } from "uuid";
 export const data = [
   {
     id: uuidv4(),
+    title: "Pledge with no reward",
+    pledge: null,
+    baseVal: null,
+    desc: "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.",
+    left: null,
+  },
+  {
+    id: uuidv4(),
     title: "Bamboo Stand",
     pledge: "Pledge $25 or more",
+    baseVal: 25,
     desc: "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you'll be added to a special Backer member list.",
     left: 101,
   },
@@ -12,6 +21,7 @@ export const data = [
     id: uuidv4(),
     title: "Black Edition Stand",
     pledge: "Pledge $75 or more",
+    baseVal: 75,
     desc: "You get a Black Special Edition computer stand and a personal thank you. You'll be added to our Backer member list. Shipping is included.",
     left: 64,
   },
@@ -19,6 +29,7 @@ export const data = [
     id: uuidv4(),
     title: "Mahogany Special Edition",
     pledge: "Pledge $200 or more",
+    baseVal: 200,
     desc: "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You'll be added to our Backer member list. Shipping is included.",
     left: 0,
   },

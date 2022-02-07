@@ -15,7 +15,7 @@ const Stats = () => {
 
   return (
     <div className="main__card_item stats">
-      <ul className="grid grid-cols-3">
+      <ul className="grid grid-cols-1 md:grid-cols-3 place-items-center md:place-items-start">
         <li>
           <h2>${backedAmount}</h2>
           <p>of $100,000 backed</p>

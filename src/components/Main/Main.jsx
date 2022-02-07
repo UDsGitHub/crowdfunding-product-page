@@ -3,7 +3,7 @@ import "./Main.css";
 
 const Main = () => {
   return (
-    <main className="flex justify-center">
+    <main className="flex justify-center px-4">
       <div className="main__card">
         <Master className="main__card_items"/>
         <Stats  className="main__card_items"/>
