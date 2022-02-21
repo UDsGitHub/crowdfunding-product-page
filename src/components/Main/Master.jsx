@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState, useContext} from "react";
+import { GlobalContext } from "../../contexts/GlobalContext";
 import logo from "../../images/logo-mastercraft.svg";
 
 const Master = () => {
+  const {isOpen, setIsOpen} = useContext(GlobalContext);
   const [isBookmarked, setisBookmarked] = useState(false);
 
   function handleBookmark(e) {
@@ -19,7 +21,7 @@ const Master = () => {
         A beautiful & handcrafted monitor stand to reduce neck and eye strain.
       </p>
       <div className="mt-8 flex justify-center gap-2 md:gap-0 md:justify-between">
-        <button className="backprj font-bold">Back this project</button>
+        <button className="backprj font-bold" onClick={() => setIsOpen(true)}>Back this project</button>
         <button className="bookmark" onClick={handleBookmark}>
           <svg
             className="bookmark_icon"

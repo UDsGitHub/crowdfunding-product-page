@@ -15,19 +15,17 @@
 
 .modal {
   display: none;
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  top: 25%;
   left: 50%;
-  max-height: 95vh;
+  width: 85%;
   max-width: 45rem;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -25%);
   border-radius: 10px;
   padding: 2.5rem;
   background-color: white;
   z-index: 4;
-  overflow-y: auto;
 }
-
 
 /* Scrollbar stylings */
 /* width */
@@ -59,53 +57,106 @@
   position: absolute;
   top: 2.5rem;
   right: 2.5rem;
+  cursor: pointer;
 }
 
 .modal_pledge {
+  position: relative;
   border: 1px solid var(--Dark-gray);
   border-radius: 10px;
   padding: 1.5rem;
 }
 
+.modal_pledge.active {
+  outline: 1px solid var(--Moderate-cyan);
+}
+
+/* Pleadge Radio Custom styles */
 .pledge-radio {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  outline: none;
+}
+
+input[type="radio"]{
+  position: relative;
+}
+
+input[type="radio"]:before{
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: white;
+  border: 1px solid var(--Dark-gray);
+  border-radius: 50%;
+}
+
+input[type="radio"]:after{
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: .8rem;
+  height: .8rem;
+  background-color: var(--Moderate-cyan);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+input[type="radio"]:checked:after{
+  opacity: 1;
 }
 
 .pledge_amount {
   color: var(--Moderate-cyan);
 }
 
+.pledges_left {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
 .pledge_input_sec {
-    opacity: 0;
+  opacity: 0;
   height: 0;
   overflow: hidden;
   transition: 0.5s;
+  border-top: 1px solid var(--Dark-gray);
 }
 
-.pledge_top.active + .pledge_input_sec{
-    opacity: 1;
-    height: initial;
-    padding-top: 1rem;
-    border-top: 1px solid var(--Dark-gray);
+.pledge_top.active + .pledge_input_sec {
+  opacity: 1;
+  height: initial;
+  padding: 1rem 0 0.5rem;
 }
 
-.pledge_top.active + .pledge_input_sec .pledge_input{
+.pledge_top.active + .pledge_input_sec .pledge_input {
+  border-radius: 50px;
+  border: 1px solid var(--Dark-gray);
+  outline: 1px solid var(--Moderate-cyan);
+}
+
+.pledge_top.active > input[type="radio"]:after{
+  opacity: 1;
+}
+
+.dollar-icon {
+  font-weight: bold;
+  color: var(--Dark-gray);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .pledge_left {
     position: relative;
-    border-radius: 50px;
-    border: 1px solid var(--Dark-gray);
-    padding: .5rem 1rem;
-    padding-left: 2rem;
-    width: 6rem;
-    font-weight: bold;
-}
-
-.dollar-icon{
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-    font-weight: bold;
-    color: var(--Dark-gray);
-    z-index: 2;
+  }
 }

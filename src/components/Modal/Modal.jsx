@@ -2,15 +2,11 @@ import React, {useState, useContext} from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import "./Modal.css";
 import closeBtn from "../../images/icon-close-modal.svg";
-import { data } from "../../data/data";
 import Pledge from "./Pledge";
 
 const Modal = () => {
-  const {isOpen, setIsOpen} = useContext(GlobalContext);
-  const [pledgeState, setPledgeState] = useState({
-    activeObject: null,
-    objects: [data],
-  });
+  const { isOpen, setIsOpen, pledgeState, setPledgeState } =
+    useContext(GlobalContext);
 
   function toggleActivePledge(index){
     setPledgeState({...pledgeState, activeObject: pledgeState.objects[0][index]})
@@ -25,7 +21,7 @@ const Modal = () => {
   }
 
   function closeModal(){
-    setIsOpen((prevState)=>!prevState);
+    setIsOpen(false);
   }
 
   return (

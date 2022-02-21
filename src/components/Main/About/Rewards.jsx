@@ -1,6 +1,18 @@
+import { useContext } from "react";
 import { data } from "../../../data/data";
+import { GlobalContext } from "../../../contexts/GlobalContext";
 
 const Rewards = () => {
+  const { isOpen, setIsOpen, pledgeState, setPledgeState } =
+    useContext(GlobalContext);
+
+  function toggleActivePledge(index) {
+    setIsOpen(true);
+    setPledgeState({
+      ...pledgeState,
+      activeObject: pledgeState.objects[0][index],
+    });
+  }
 
   return (
     <ul className={`grid grid-rows-${data.length - 1} gap-8`}>
@@ -23,13 +35,16 @@ const Rewards = () => {
                   <p>left</p>
                 </div>
                 <button
-                  className={`${item.left === 0 && "bg-gray-500"} w-auto`}
+                onClick={() => toggleActivePledge(index)}
+                  className={`${
+                    item.left === 0 && "bg-gray-500 pointer-events-none"
+                  } w-auto`}
                 >
                   {item.left === 0 ? "Out of stock" : "Select Reward"}
                 </button>
               </div>
             </li>
-          )
+          );
         }else{
           return(null);
         }
